@@ -12,6 +12,7 @@ package cse360assign2;
 public class AddingMachine {
 	
 	private int total; // private internal value
+	private String log; // logs all the changes to the total value
 	
 	/**
 	 * Method Name: Adding Machine
@@ -20,6 +21,18 @@ public class AddingMachine {
 	 */
 	public AddingMachine () {
 		total = 0;  // not needed - included for clarity
+		log = "" + total;
+	}
+	
+	/**
+	 * Method Name: Adding Machine 
+	 * Description: Overloaded constructor takes a value and initializes
+	 * the internal value at this input
+	 * @param value - value that will be input into total 
+	 */
+	public AddingMachine( int value ) {
+		total = value;
+		log = "" + total;
 	}
 	
 	/**
@@ -29,7 +42,7 @@ public class AddingMachine {
 	 * @return total
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**
@@ -39,7 +52,8 @@ public class AddingMachine {
 	 * @param value - value that will be added onto total
 	 */
 	public void add (int value) {
-		
+		total += value;
+		log += " + " + value;
 	}
 	
 	/**
@@ -49,7 +63,8 @@ public class AddingMachine {
 	 * @param value - value that will be subtracted from total
 	 */
 	public void subtract (int value) {
-		
+		total -= value;
+		log += " - " + value;
 	}
 	
 	/**
@@ -58,15 +73,16 @@ public class AddingMachine {
 	 * AddingMachine intance
 	 */
 	public String toString () {
-		return "";
+		return total + " = " + log;
 	}
 	
 	/**
 	 * Method Name: Clear
 	 * Description: clears the current AddingMachine instance, that is
-	 * it resets internal value to zero
+	 * it resets internal value to zero, and clears the log as well
 	 */
 	public void clear() {
-		
+		total = 0;
+		log = "0";
 	}
 }
